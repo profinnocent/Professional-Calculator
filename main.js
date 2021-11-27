@@ -29,7 +29,12 @@ let isEqualTo = false;
 //The Power ON - OFF button function
 function power() {
     if(screen.innerText === "OFF"){
-        clearScr();
+        num1=0;
+        num2=0;
+        screen.innerText = 0;
+        opPressed=false;
+        operator=0;
+        isEqualTo =false;
         btnPower.style.backgroundColor = 'green';
     }else{
         screen.innerText = "OFF";
