@@ -21,8 +21,9 @@ let screen = document.getElementById('screen')
 let num1 = 0;
 let num2 = 0;
 let sum = 0;
-let firstNum = false;
+let operator=0;
 let opPressed = false;
+
 
 function clearscr(){
     num1=0;
@@ -32,20 +33,88 @@ function clearscr(){
 }
 
 function answer(){
-    num2 = parseFloat(num2);
-    num1 += num2;
-    screen.innerText = num1;
-    num2 = 0;
+    if(operator == 1){
+        num2 = parseFloat(num2);
+        num1 += num2;
+        screen.innerText = num1;
+        num2 = 0;
+        operator=0;
+    }else if(operator == 2){
+        num2 = parseFloat(num2);
+        num1 -= num2;
+        screen.innerText = num1;
+        num2 = 0;
+        operator=0;
+    }else if(operator == 3){
+        num2 = parseFloat(num2);
+        num1 *= num2;
+        screen.innerText = num1;
+        num2 = 0;
+        operator=0;
+    }else if(operator == 4){
+        num2 = parseFloat(num2);
+        num1 /= num2;
+        screen.innerText = num1;
+        num2 = 0;
+        operator=0;
+    }
 }
 
+//Addition function
 function add(){
     if(opPressed==false){
     num1 = parseFloat(screen.innerText);
     screen.innerText += '+';
     opPressed = true;
+    operator = 1; //1 is for addition
     }else{
         answer();
         screen.innerText += '+';
+        operator = 1; //1 is for addition
+    }
+}
+
+//Subtraction function
+function minus(){
+    if(opPressed==false){
+    num1 = parseFloat(screen.innerText);
+    screen.innerText += '-';
+    opPressed = true;
+    operator = 2; //2 is for subtraction
+
+    }else{
+        answer();
+        screen.innerText += '-';
+        operator = 2; //2 is for subtraction
+    }
+}
+
+//Multiplication function
+function times(){
+    if(opPressed==false){
+    num1 = parseFloat(screen.innerText);
+    screen.innerText += 'x';
+    opPressed = true;
+    operator = 3; //3 is for multiplicationtion
+    }else{
+        answer();
+        screen.innerText += 'x';
+        operator = 3; //3 is for mulplication
+    }
+}
+
+//Division function
+function divide(){
+    if(opPressed==false){
+    num1 = parseFloat(screen.innerText);
+    screen.innerText += '/';
+    opPressed = true;
+    operator = 4; //1 is for division
+
+    }else{
+        answer();
+        screen.innerText += '/';
+        operator = 4; //4 is for division
     }
 }
 
@@ -142,9 +211,3 @@ function printNum(number){
     }    
     
 };
-
-
-
-
-
-
