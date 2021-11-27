@@ -23,6 +23,7 @@ let num2 = 0;
 let sum = 0;
 let operator=0;
 let opPressed = false;
+let isEqualTo = false;
 
 
 function clearscr(){
@@ -30,6 +31,8 @@ function clearscr(){
     num2=0;
    screen.innerText = 0;
    opPressed=false;
+   operator=0;
+   isEqualTo =false;
 }
 
 function answer(){
@@ -58,6 +61,7 @@ function answer(){
         num2 = 0;
         operator=0;
     }
+    isEqualTo = true;
 }
 
 //Addition function
@@ -72,6 +76,7 @@ function add(){
         screen.innerText += '+';
         operator = 1; //1 is for addition
     }
+isEqualTo = false;
 }
 
 //Subtraction function
@@ -87,6 +92,7 @@ function minus(){
         screen.innerText += '-';
         operator = 2; //2 is for subtraction
     }
+isEqualTo = false;
 }
 
 //Multiplication function
@@ -101,6 +107,7 @@ function times(){
         screen.innerText += 'x';
         operator = 3; //3 is for mulplication
     }
+isEqualTo = false;
 }
 
 //Division function
@@ -110,35 +117,13 @@ function divide(){
     screen.innerText += '/';
     opPressed = true;
     operator = 4; //1 is for division
-
     }else{
         answer();
         screen.innerText += '/';
         operator = 4; //4 is for division
     }
+isEqualTo = false;
 }
-
-function print(){
-    if(opPressed==false){
-        if (screen.innerText == 0){
-            num1 = '1';
-            screen.innerText = '1';
-        }else{
-            num1 += '1';
-            screen.innerText += '1';
-        }
-    }else{
-        if (num2 == 0){
-            num2 = '1';
-            screen.innerText += '1';
-        }else{
-            num2 += '1';
-            screen.innerText += '1';
-
-        }
-    }    
-    
-};
 
 function print1(){
 let number = '1';
@@ -191,23 +176,28 @@ function print0(){
     } 
 
 function printNum(number){
-    if(opPressed==false){
-        if (screen.innerText == 0){
-            num1 = '1';
-            screen.innerText = number;
+    if(isEqualTo==false){
+        if(opPressed==false){
+            if (screen.innerText == 0){
+                num1 = '1';
+                screen.innerText = number;
+            }else{
+                num1 += number;
+                screen.innerText += number;
+            }
         }else{
-            num1 += number;
-            screen.innerText += number;
-        }
-    }else{
-        if (num2 == 0){
-            num2 = number;
-            screen.innerText += number;
-        }else{
-            num2 += number;
-            screen.innerText += number;
+            if (num2 == 0){
+                num2 = number;
+                screen.innerText += number;
+            }else{
+                num2 += number;
+                screen.innerText += number;
 
+            }
         }
+        
+    }else{
+        alert('You cant clcik a number after equal to. Please clcik an operator or reset screen')
     }    
     
 };
