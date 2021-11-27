@@ -45,8 +45,24 @@ text-align: center;
 margin: 5px auto 10px;
 }
 
-#reset, #zero, #minus{
+#dot{
+    font-size: 1.5rem;
+}
+
+#power{
+    border-radius: 5px;
+    width:110px ;
+    background-color: red;
+    color: whitesmoke;
+}
+
+#reset, #del{
     background-color: khaki;
+}
+
+#minus{
+    background-color: turquoise;
+    font-size: 2rem;
 }
 
 #divide{
@@ -56,18 +72,16 @@ margin: 5px auto 10px;
 #times{
     background-color: rgb(19, 13, 13);
     color: white;
-    font-size: 1#2rem;
+    font-size: 1.2rem;
 }
 
 #plus{
     background-color: rgb(243, 72, 100);
     color: white;
     font-size: 1#2rem;
-
 }
 
 #equal{
     background-color: orange;
-    font-size: 1#2rem;
-
+    font-size: 1.2rem;
 }
